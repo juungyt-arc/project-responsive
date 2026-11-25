@@ -1,0 +1,128 @@
+/* =========================================
+   SUB5 - MEDIA
+   (공통 스타일 sub_common.css) ㄱㄱㄱㄱ
+   ========================================= */
+
+/* 와이드 pc  */
+/* ---------- 1. 인트로 ---------- */
+/* 타이틀 영역(위 여백·제목·문구)은 sub_common.css 공통 (sub2와 동일) */
+.shop_intro{padding-bottom: 160px;}
+
+/* ---------- 섹션 큰 제목 + 오른쪽 설명 ---------- */
+
+.top_txt{width: var(--inner); margin: 0 auto 50px;
+	display: flex; align-items: flex-end; align-items: last baseline; gap: 100px;}
+.top_txt h3{font-size: var(--font-row); font-weight: 400; line-height: 1.1; letter-spacing: -.01em; white-space: nowrap;
+	-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+	text-rendering: geometricPrecision; transform: translateZ(0);}
+.top_txt p{font-size: var(--font-desc); line-height: 1.6; color: var(--c-gray);}
+
+/* ---------- 색상 칩 (메인 layout.css와 같은 모양) ---------- */
+.color{display: flex; gap: 5px; margin-top: 10px;}
+.color li{width: 15px; height: 15px; border: 1px solid #ccc; border-radius: 50%;}
+.c_bk{background: #191817;}
+.c_gray{background: #9A9A9A;}
+.c_charcoal{background: #3C3C3C;}
+.c_gold{background: #C8A96A;}
+.c_brown{background: #6B3A2A;}
+.c_sand{background: #E9CFB2;}
+.c_mint{background: #A8D5C2;}
+
+/* ---------- 1. h100 ---------- */
+.h100{background: var(--c-dark); color: #fff; --c-gray: #999;}
+.h100 .flex{display: flex;}
+.h100 .h100_img{width: 50%;}
+.h100 .h100_img img{width: 100%; display: block;}
+.h100 .h100_txt{display: flex; flex-direction: column; padding: 100px 5% 80px;}
+.h100 .h100_txt .price{margin-top: auto;font-size: var(--font-year);font-weight: 400;letter-spacing: -.01em;}
+.h100 .h100_txt .price .row{font-size: 3rem;vertical-align: baseline;}
+.h100 .h100_txt h3{font-size: var(--font-sec); font-weight: 300; line-height: 1.1; letter-spacing: -.01em;}
+.h100 .h100_txt .firstp{margin-top: 30px; font-size: var(--font-body); color: var(--c-gray);}
+
+/* ---------- 2. headphone ---------- */
+.headphone{padding: 100px 0 200px; background: #F6F6F6;}
+.headphone .headphone_list{width: var(--inner); display: flex; gap: 15px; margin: 0 auto;}
+.headphone .headphone_list > li{flex: 1; min-width: 0;}
+.headphone .headphone_list .img_box{margin-bottom: 15px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,.08);}
+.headphone .headphone_list img{display: block; width: 100%; height: auto;}
+.headphone .headphone_list .flex{width: 95%;display: flex;justify-content: space-between;align-items: center;}
+.headphone .headphone_list h4{font-size: var(--font-num);font-weight: 400;}
+.headphone .headphone_list .price{font-size: var( --font-num);color: #191817;letter-spacing: 0.05rem;}
+.headphone .headphone_list p{font-size: var(--font-desc);color: #555;}
+
+/* ---------- 3. speakers  ---------- */
+.speakers{padding: 100px 0 200px;}
+.speakers .speakers_list{width: var(--inner); margin: 0 auto;
+	display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px 15px;}
+.speakers .speakers_list > li{min-width: 0;}
+.speakers .speakers_list .img_box{margin-bottom: 15px;}
+.speakers .speakers_list img{display: block; width: 100%; height: auto;}
+.speakers .speakers_list h4{font-size: var(--font-num); font-weight: 400;}
+.speakers .speakers_list p{font-size: var(--font-desc); color: #555;}
+.speakers .speakers_list .price{margin-top: 5px; font-size: var(--font-num); color: #191817; letter-spacing: 0.05rem;}
+
+/* ---------- 3. stores  ---------- */
+.stores{padding: 100px 0 200px;background: var(--c-dark); color: #fff; --c-gray: #999;}
+.stores .stores_list{width: var(--inner);margin: 0 auto; display: flex;}
+.stores .stores_list li{flex: 1;padding: 0 50px;text-align: center;}
+.stores .stores_list li:not(:last-child){border-right: 1px solid #666;}
+.stores .stores_list h4{font-size: var(--font-sec);font-weight: 400;line-height: 1.1;margin-bottom: 50px;}
+.stores .stores_list address{font-size: var(--font-card);line-height: 1.6;color: var(--c-gray);font-style: normal;}
+
+
+/* 일반 pc */
+@media screen and (max-width:1280px) {
+	.shop_intro{padding-bottom: 80px;}
+	.top_txt{gap: 60px;}
+	.h100 .h100_txt{padding: 80px 5% 60px;}
+	.headphone{padding: 80px 0 150px;}
+	.speakers{padding-bottom: 150px;}
+	.speakers .speakers_list{gap: 50px 15px;}
+	.stores{padding: 80px 0 150px;}
+	.stores .stores_list li{padding: 0 40px;}
+	.stores .stores_list h4{margin-bottom: 40px;}
+}
+
+/* 테블릿 */
+@media screen and (max-width:1024px) {
+	.shop_intro{padding-bottom: 60px;}
+	.top_txt{margin-bottom: 40px; gap: 40px;}
+	.h100 .h100_txt{padding: 50px 4% 40px;}
+	.h100 .h100_txt .firstp{margin-top: 20px;}
+	.h100 .h100_txt .price .row{font-size: 2.4rem;}
+
+	.headphone .headphone_list .flex{flex-direction: column; align-items: flex-start;}
+	.headphone .headphone_list h4{margin-bottom: 10px;}
+	.headphone .headphone_list .price{margin-bottom: 5px;}
+	.stores .stores_list li{padding: 0 25px;}
+	.stores .stores_list h4{margin-bottom: 30px; font-size: 2.5rem;}
+	.stores .stores_list address{font-size: 1rem;}
+}
+
+/* 소형 테블릿 */
+@media screen and (max-width:768px) {
+	.top_txt{flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 30px;}
+
+	.h100 .flex{flex-direction: column;}
+	.h100 .h100_img{width: 100%;}
+	.h100 .h100_txt{padding: 50px 20px 60px;}
+	.h100 .h100_txt .price{margin-top: 40px;}
+	.headphone{padding: 60px 0 100px;}
+
+	.stores{padding: 60px 0 100px;}
+	.stores .stores_list{flex-direction: column;}
+	.stores .stores_list li{padding: 30px 0;}
+	.stores .stores_list li:first-child{padding-top: 0;}
+	.stores .stores_list li:not(:last-child){border-right: 0; border-bottom: 1px solid #666;}
+	.stores .stores_list h4{margin-bottom: 15px;}
+}
+
+/* 모바일 */
+@media screen and (max-width:640px) {
+	.shop_intro{padding-bottom: 50px;}
+	.h100 .h100_txt .price .row{font-size: 2rem;}
+	.headphone .headphone_list{flex-direction: column; gap: 40px;}
+	.headphone .headphone_list .flex{width: 100%;}
+	.speakers{padding-bottom: 100px;}
+	.speakers .speakers_list{grid-template-columns: 1fr; gap: 40px;}
+}

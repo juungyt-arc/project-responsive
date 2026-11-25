@@ -1,0 +1,135 @@
+﻿/* =========================================
+   SUB5 - MEDIA
+   (공통 스타일 sub_common.css) ㄱㄱㄱㄱ
+   ========================================= */
+
+/* 와이드 pc  */
+
+/* 큰 글자 깨짐 방지 (sub_common.css의 .big_txt와 같은 설정) */
+.product_intro .page_title, .top_txt h3, .beolab h3{
+	-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+	text-rendering: geometricPrecision; transform: translateZ(0);
+}
+
+/* ---------- 1. 인트로 ---------- */
+.product_intro{width: var(--inner); margin: 0 auto; padding-top: 150px; padding-bottom: 160px;}
+/* 타이틀 영역: 제목 한 줄 + 아래 문구 2개 (왼쪽 / --col-txt 지점) */
+.product_intro .title_box{display: grid; grid-template-columns: var(--col-txt) 1fr; align-items: end;}
+.product_intro .page_title{grid-column: 1 / -1; /* 제목은 두 칸 다 차지 */
+	margin-bottom: 30px; font-size: var(--font-page); font-weight: 400; line-height: 1; letter-spacing: -.03em;}
+.product_intro .mid_copy{font-size: var(--font-copy); line-height: 1.4;}
+.product_intro .sub_copy{font-size: var(--font-card); line-height: 1.5; color: var(--c-gray);}
+
+/* ---------- 섹션 큰 제목 + 오른쪽 설명 (Speakers / Headphones / Home Cinema) ---------- */
+/* last baseline: 설명 마지막 줄의 글자 밑선을 제목 글자 밑선에 맞춤 (안 되는 브라우저는 flex-end) */
+.top_txt{width: var(--inner); margin: 0 auto 50px;
+	display: flex; align-items: flex-end; align-items: last baseline; gap: 100px;}
+.top_txt h3{font-size: var(--font-row); font-weight: 400; line-height: 1.1; letter-spacing: -.01em; white-space: nowrap;}
+.top_txt p{font-size: var(--font-desc); line-height: 1.6; color: var(--c-gray);}
+
+/* ---------- 2. beolab (화면 가득 이미지 + 글 겹치기) ---------- */
+.beolab{height: 960px; overflow: hidden;}
+.beolab img{position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;}
+.beolab .txt_box{position: absolute; left: 5%; right: 5%; bottom: 60px;
+	display: flex; align-items: flex-end; align-items: last baseline; gap: 80px; color: #fff;}
+.beolab h3{font-size: var(--font-row); font-weight: 400; line-height: 1; letter-spacing: -.01em; white-space: nowrap;}
+.beolab p{font-size: var(--font-desc); line-height: 1.6;}
+
+/* ---------- 3~5. 제품 섹션 공통 (Speakers / Headphones / Home Cinema) ---------- */
+.speaker, .headphone, .cinema{padding: 160px 0 200px;}
+
+/* 제품 카드: 이미지 + 이름 + 설명 */
+.prd_list{width: var(--inner); margin: 0 auto; display: grid; gap: 30px;}
+.prd_list img{display: block; width: 100%; height: auto; object-fit: cover;}
+.prd_list h4{margin-top: 12px; font-size: var(--font-card); font-weight: 400; line-height: 1.3;}
+.prd_list p{margin-top: 4px; font-size: var(--font-body); color: var(--c-gray);}
+
+/* ---------- 3. speaker: 왼쪽 큰 제품 1개(2줄 차지) + 오른쪽 2개 ---------- */
+.speaker_list{grid-template-columns: 1.65fr 1fr;}
+.speaker_list li{display: flex; flex-direction: column;}
+.speaker_list img{aspect-ratio: 25 / 16;}
+.speaker_list .list_set{grid-row: 1 / 3;}
+/* 큰 이미지: 줄 높이에 영향 안 주고(height:0) 남은 높이를 채움 → 오른쪽 2개와 높이가 맞음 */
+.speaker_list .list_set .img_box{flex: 1; min-height: 0; position: relative;}
+.speaker_list .list_set img{position: absolute; inset: 0; height: 100%; aspect-ratio: auto;}
+
+/* ---------- 4. headphone: 검정 배경, 가운데 큰 이미지 + 양옆 작은 이미지 (아래 정렬) ---------- */
+.headphone{background: var(--c-dark); color: #fff; --c-gray: #999;}
+.headphone_list{grid-template-columns: 1fr 2.37fr 1fr; align-items: end;}
+.headphone_list img{aspect-ratio: 4 / 5;}
+.headphone_list .list_set img{aspect-ratio: 32 / 25;}
+
+/* ---------- 5. cinema: 첫 제품은 화면 가득 + 글 겹치기, 아래 2개 ---------- */
+.cinema_list{grid-template-columns: 1fr 1fr;}
+.cinema_list img{aspect-ratio: 158 / 100;}
+/* 좌우 5%씩 밖으로 빼서 화면 끝까지 (5 / 90 = 5.5556%) */
+.cinema_list .list_set{grid-column: 1 / -1; margin: 0 -5.5556%; position: relative;}
+.cinema_list .list_set img{aspect-ratio: 2 / 1;}
+.cinema_list .list_set .txt{position: absolute; left: 5%; bottom: 50px;}
+.cinema_list .list_set h4{margin-top: 0; font-size: var(--font-copy);}
+.cinema_list .list_set p{color: var(--c-dark);}
+
+
+/* 일반 pc */
+@media screen and (max-width:1280px) {
+	.product_intro{padding-top: 120px; padding-bottom: 80px;}
+	.top_txt{gap: 60px;}
+	.beolab{height: 640px;}
+	.beolab .txt_box{bottom: 40px; gap: 50px;}
+	.speaker, .headphone, .cinema{padding: 120px 0 160px;}
+	.prd_list{gap: 20px;}
+	.cinema_list .list_set .txt{bottom: 30px;}
+}
+
+/* 테블릿 */
+@media screen and (max-width:1024px) {
+	.product_intro{padding-top: 100px; padding-bottom: 60px;}
+	.product_intro .page_title{margin-bottom: 24px;}
+	.top_txt{margin-bottom: 40px; gap: 40px;}
+	.beolab{height: 520px;}
+	.beolab .txt_box{bottom: 30px; gap: 40px;}
+	.speaker, .headphone, .cinema{padding: 100px 0 120px;}
+	.prd_list{gap: 16px;}
+	.cinema_list .list_set .txt{bottom: 24px;}
+}
+
+/* 소형 테블릿 */
+@media screen and (max-width:768px) {
+	.product_intro{padding-top: 90px;}
+	/* 문구 2개 위아래로 쌓기 */
+	.product_intro .title_box{grid-template-columns: 1fr; gap: 16px;}
+	/* 섹션 제목 아래로 설명 쌓기 */
+	.top_txt{flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 30px;}
+	.beolab{height: 500px;}
+	.cinema_list .list_set .txt{bottom: 20px;}
+
+	/* 제목 아래로 설명 쌓기 */
+	.beolab .txt_box{flex-direction: column; align-items: flex-start; gap: 10px;}
+	.beolab p{padding-bottom: 0;}
+
+	/* speaker: 큰 제품 위 한 줄, 아래 2개 나란히 */
+	.speaker_list{grid-template-columns: 1fr 1fr;}
+	.speaker_list .list_set{grid-row: auto; grid-column: 1 / -1;}
+	.speaker_list .list_set .img_box{flex: none;}
+	.speaker_list .list_set img{position: static; height: auto; aspect-ratio: 4 / 3;}
+
+	/* headphone: 큰 제품(H100)을 맨 위로, 나머지 2개 나란히 */
+	.headphone_list{grid-template-columns: 1fr 1fr; align-items: start;}
+	.headphone_list .list_set{grid-column: 1 / -1; order: -1;}
+}
+
+/* 모바일 */
+@media screen and (max-width:640px) {
+	.product_intro{padding-bottom: 50px;}
+	.product_intro .page_title{margin-bottom: 16px;}
+	.product_intro .sub_copy br{display: none;}
+	.beolab{height: 460px;}
+	.speaker, .headphone, .cinema{padding: 70px 0 80px;}
+	.top_txt p br{display: none;}
+
+	/* cinema: 한 줄씩, 첫 제품 글은 이미지 아래로 */
+	.cinema_list{grid-template-columns: 1fr;}
+	.cinema_list .list_set .txt{position: static; padding: 0 5%;}
+	.cinema_list .list_set h4{margin-top: 12px;}
+	.cinema_list .list_set img{aspect-ratio: 4 / 3;}
+}

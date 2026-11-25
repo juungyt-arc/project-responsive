@@ -1,0 +1,185 @@
+/* =========================================
+   SUB5 - MEDIA
+   (공통 스타일 sub_common.css) ㄱㄱㄱㄱ
+   ========================================= */
+
+/* 와이드 pc  */
+/* ---------- 1. 인트로 ---------- */
+/* 타이틀 영역(위 여백·제목·문구)은 sub_common.css 공통 (sub2·4와 동일) */
+.media_intro{padding-bottom: 160px;}
+
+/* ---------- 2. 캠페인 영상 슬라이더 ---------- */
+.media{background: #E9E6E0; padding: 120px 0;} /* 상단 그라데이션의 웜그레이(--glow-sand)와 같은 색 */
+.media .media_slider{width: 70%; margin: 0 auto; overflow: hidden;}
+.media .media_slider a{display: block; position: relative;}
+.media .media_slider img{display: block; width: 100%; height: auto;}
+/* 영상 위에 어두운 그라데이션 깔기 (아래쪽 제목 글씨가 잘 보이게) */.media .media_slider a::after{content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 50%;
+	background: linear-gradient(to top, rgba(0,0,0,.6), rgba(0,0,0,0));}
+/* 가운데 재생 버튼 */
+.media .play{position: absolute; left: 50%; top: 50%; z-index: 2; transform: translate(-50%, -50%);
+	width: 80px; height: 80px; border-radius: 50%;
+	display: flex; justify-content: center; align-items: center;
+	background: rgba(255,255,255,.25); border: 1px solid rgba(255,255,255,.6);
+	backdrop-filter: blur(6px); color: rgba(255,255,255,.8); font-size: var(--font-card); transition: all .3s;}
+.media .media_slider a:hover .play{background: #fff; color: var(--c-dark);}
+
+.media .media_slider h4{position: absolute; left: 40px; bottom: 36px; z-index: 2;
+	font-size: var(--font-copy); font-weight: 400; color: #fff;}
+
+.media .swiper-pagination{position: static; margin-top: 30px; text-align: center;}
+.media .swiper-pagination-bullet{width: 10px; height: 10px; margin: 0 6px; background: #bfbab2; opacity: 1;}
+.media .swiper-pagination-bullet-active{background: var(--c-dark);}
+
+/* ---------- 3. 갤러리 (Moments) ---------- */
+.gallery{background: var(--c-dark); color: #fff;padding: 100px 5% 100px;}
+
+.gallery .top_txt{width: var(--inner); margin: 0 auto 60px; display: flex; align-items: baseline; gap: 60px;}
+.gallery .top_txt h3{font-size: var(--font-row); font-weight: 400; line-height: 1.1; letter-spacing: -.01em; white-space: nowrap;}
+.gallery .top_txt p{font-size: var(--font-desc); line-height: 1.6; color: var(--c-gray);}
+
+.gallery .gallery_list{width: var(--inner); margin: 0 auto; display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	grid-template-rows: repeat(12, minmax(0, 1fr)); gap: 10px; aspect-ratio: 1790 / 1950;
+	grid-template-areas:
+		'a b c d e'
+		'a b c d e'
+		'a g c i j'
+		'f g h i j'
+		'f g h n j'
+		'f l m n o'
+		'k l m n o'
+		'k q m s o'
+		'k q m s t'
+		'p q r v t'
+		'p u r v t'
+		'p u r v t'
+		;
+}
+.gallery .gallery_list li{width: 100%; height: 100%;}
+
+.gallery .gallery_list img{display: block; width: 100%; height: 100%; object-fit: cover;}
+.gallery .gallery_list li:nth-child(1){grid-area: a;}
+.gallery .gallery_list li:nth-child(2){grid-area: b;}
+.gallery .gallery_list li:nth-child(3){grid-area: c;}
+.gallery .gallery_list li:nth-child(4){grid-area: d;}
+.gallery .gallery_list li:nth-child(5){grid-area: e;}
+.gallery .gallery_list li:nth-child(6){grid-area: f;}
+.gallery .gallery_list li:nth-child(7){grid-area: g;}
+.gallery .gallery_list li:nth-child(8){grid-area: h;}
+.gallery .gallery_list li:nth-child(9){grid-area: i;}
+.gallery .gallery_list li:nth-child(10){grid-area: j;}
+.gallery .gallery_list li:nth-child(11){grid-area: k;}
+.gallery .gallery_list li:nth-child(12){grid-area: l;}
+.gallery .gallery_list li:nth-child(13){grid-area: m;}
+.gallery .gallery_list li:nth-child(14){grid-area: n;}
+.gallery .gallery_list li:nth-child(15){grid-area: o;}
+.gallery .gallery_list li:nth-child(16){grid-area: p;}
+.gallery .gallery_list li:nth-child(17){grid-area: q;}
+.gallery .gallery_list li:nth-child(18){grid-area: r;}
+.gallery .gallery_list li:nth-child(19){grid-area: s;}
+.gallery .gallery_list li:nth-child(20){grid-area: t;}
+.gallery .gallery_list li:nth-child(21){grid-area: u;}
+.gallery .gallery_list li:nth-child(22){grid-area: v;}
+
+/* 일반 pc */
+@media screen and (max-width:1280px) {
+	.media_intro{padding-bottom: 80px;}
+	.media{padding: 100px 0;}
+	.media .play{width: 70px; height: 70px;}
+	.media .media_slider h4{left: 30px; bottom: 30px;}
+}
+
+/* 테블릿 */
+@media screen and (max-width:1024px) {
+	.media_intro{padding-bottom: 60px;}
+	.media .play{width: 60px; height: 60px;}
+	.media .media_slider h4{left: 24px; bottom: 24px;}
+	.gallery .gallery_list{
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		grid-template-rows: repeat(12, minmax(0, 1fr)); aspect-ratio: 2 / 3;
+		grid-template-areas:
+			'a b c d'
+			'a b c d'
+			'a f g d'
+			'e f g h'
+			'e f k h'
+			'i j k h'
+			'i j k l'
+			'i n o l'
+			'm n o p'
+			'm n s p'
+			'q r s t'
+			'q r s t'
+			;
+	}
+	.gallery .gallery_list li:nth-child(21),
+	.gallery .gallery_list li:nth-child(22){display: none;}
+}
+
+/* 소형 테블릿 */
+@media screen and (max-width:768px) {
+	.media{padding: 80px 0;}
+	.media .media_slider{width: 90%;}
+	.media .play{width: 50px; height: 50px; font-size: var(--font-body);}
+	.media .swiper-pagination{margin-top: 20px;}
+	.gallery .top_txt{flex-direction: column; gap: 12px; margin-bottom: 40px;}
+
+	.gallery .gallery_list{
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		grid-template-rows: repeat(14, minmax(0, 1fr)); gap: 8px; aspect-ratio: 2 / 5;
+		grid-template-areas:
+			'a b c'
+			'a b c'
+			'a e f'
+			'd e f'
+			'd e i'
+			'g h i'
+			'g h l'
+			'j h l'
+			'j k l'
+			'j k o'
+			'm n o'
+			'm n r'
+			'p q r'
+			'p q r'
+			;
+	}
+	.gallery .gallery_list li:nth-child(19),
+	.gallery .gallery_list li:nth-child(20){display: none;}
+}
+
+/* 모바일 */
+@media screen and (max-width:640px) {
+	.media_intro{padding-bottom: 50px;}
+	.media .play{width: 40px; height: 40px;}
+	.media .media_slider h4{left: 16px; bottom: 16px;}
+
+	.gallery .top_txt{flex-direction: column; gap: 12px; margin-bottom: 40px;}
+
+	.gallery .gallery_list{
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-template-rows: repeat(14, minmax(0, 1fr)); gap: 6px; aspect-ratio: 4 / 15;
+		grid-template-areas:
+			'a b'
+			'a b'
+			'a d'
+			'c d'
+			'c d'
+			'e d'
+			'e f'
+			'g f'
+			'g h'
+			'i h'
+			'i j'
+			'k j'
+			'k l'
+			'k l'
+			;
+	}
+	.gallery .gallery_list li:nth-child(13),
+	.gallery .gallery_list li:nth-child(14),
+	.gallery .gallery_list li:nth-child(15),
+	.gallery .gallery_list li:nth-child(16),
+	.gallery .gallery_list li:nth-child(17),
+	.gallery .gallery_list li:nth-child(18){display: none;}
+}

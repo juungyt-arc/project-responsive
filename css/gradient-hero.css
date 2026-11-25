@@ -1,0 +1,104 @@
+/* =========================================================
+   B&O 은은한 원형 그라데이션 배경 (CSS 전용, 자바스크립트 없음)
+   - 페이지 타이틀 영역 뒤에 깔아 쓰는 배경
+   - 색 원 4개가 천천히 떠다니며 섞이는 효과
+   ========================================================= */
+
+:root {
+  --color-bg: #F6F6F6;      /* 사이트 기본 배경 */
+  --color-dark: #191817;
+  --glow-blue:  rgba(6, 13, 170, 0.22);     /* B&O 블루 #060DAA */
+  --glow-red:   rgba(184, 68, 47, 0.18);    /* 센추리 레드 #B8442F */
+  --glow-brown: rgba(107, 58, 42, 0.14);    /* 체스트넛 브라운 #6B3A2A */
+  --glow-sand:  rgba(233, 230, 224, 0.9);   /* 웜그레이 #E9E6E0 */
+  --speed: 1;               /* 숫자를 키우면 느려짐 (예: 1.5) */
+}
+
+/* 1. 배경을 깔 영역 ------------------------------------ */
+.hero-glow {
+  position: relative;
+  overflow: hidden;           /* 원이 영역 밖으로 나가지 않게 */
+  background: var(--color-bg);
+  isolation: isolate;
+}
+
+/* 글자·내용은 배경 위로 */
+.hero-glow > *:not(.glow) {
+  position: relative;
+  z-index: 1;
+}
+
+/* 2. 떠다니는 색 원 ------------------------------------ */
+.glow {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* 파랑: 오른쪽 위 */
+.glow-1 {
+  top: -30%;
+  right: -10%;
+  width: 70%;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(circle at center, var(--glow-blue) 0%, rgba(6, 13, 170, 0) 65%);
+  animation: float-1 calc(24s * var(--speed)) ease-in-out infinite alternate;
+}
+
+/* 레드: 왼쪽 아래 */
+.glow-2 {
+  bottom: -40%;
+  left: -15%;
+  width: 65%;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(circle at center, var(--glow-red) 0%, rgba(184, 68, 47, 0) 65%);
+  animation: float-2 calc(30s * var(--speed)) ease-in-out infinite alternate;
+}
+
+/* 브라운: 가운데 */
+.glow-3 {
+  top: 10%;
+  left: 30%;
+  width: 50%;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(circle at center, var(--glow-brown) 0%, rgba(107, 58, 42, 0) 65%);
+  animation: float-3 calc(36s * var(--speed)) ease-in-out infinite alternate;
+}
+
+/* 웜그레이 하이라이트: 왼쪽 위 (색을 부드럽게 눌러줌) */
+.glow-4 {
+  top: -35%;
+  left: -5%;
+  width: 60%;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(circle at center, var(--glow-sand) 0%, rgba(233, 230, 224, 0) 60%);
+  animation: float-4 calc(28s * var(--speed)) ease-in-out infinite alternate;
+}
+
+/* 3. 움직임 (아주 천천히, 조금씩) ----------------------- */
+@keyframes float-1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-8%, 10%) scale(1.08); }
+  100% { transform: translate(-14%, 4%) scale(0.95); }
+}
+@keyframes float-2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(12%, -10%) scale(1.1); }
+  100% { transform: translate(6%, -16%) scale(1); }
+}
+@keyframes float-3 {
+  0%   { transform: translate(0, 0) scale(0.9); }
+  50%  { transform: translate(-10%, 12%) scale(1.05); }
+  100% { transform: translate(10%, -6%) scale(1.15); }
+}
+@keyframes float-4 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(16%, 12%) scale(1.1); }
+}
+
+/* 4. 움직임 줄이기 설정을 켠 사용자는 멈춘 상태로 -------- */
+@media (prefers-reduced-motion: reduce) {
+  .glow { animation: none; }
+}

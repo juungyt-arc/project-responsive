@@ -1,0 +1,117 @@
+/* =========================================
+   SUB5 - MEDIA
+   (공통 스타일 sub_common.css) ㄱㄱㄱㄱ
+   ========================================= */
+
+/* 와이드 pc  */
+
+/* ---------- 변수 ---------- */
+.sub{
+	--c-dark: #191817;
+	--c-gray: #666;
+	--c-line: #c8c8c8;
+	--c-red: #B5432F;
+	--c-brown: #6B392B;
+	--c-blue: #060DAA;
+	--inner: 90%;
+	--col-txt: 57%; /* 행 리스트에서 오른쪽 설명글이 시작되는 위치 */
+	/* 폰트 크기 변수는 common.css :root에 있음 */
+	background: #fff; color: var(--c-dark);
+}
+
+/* ---------- 헤더: 흰 배경 + 어두운 글자 (common.js 스크롤 배경색 덮어쓰기) ---------- */
+.sub #headerArea{background: #fff !important; border-bottom: 1px solid transparent !important;}
+.sub #headerArea h1 img{filter: brightness(0);} /* 흰 로고 → 검정 */
+.sub #headerArea #gnb li a{color: var(--c-dark);}
+.sub #headerArea .menu_ham span,
+.sub #headerArea .menu_ham span::before,
+.sub #headerArea .menu_ham span::after{background: var(--c-dark);}
+
+.sub #content section{position: relative;}
+
+/* ---------- AOS 이동 거리 (기본 100px → 가볍게) ---------- */
+.sub [data-aos=fade-up]{transform: translate3d(0, 40px, 0);}
+
+/* ---------- 이미지 hover 트랜지션 (살짝 커짐) ---------- */
+.sub #content img{transition: transform .4s;}
+.sub #content img:hover{transform: scale(1.05);}
+/* 이미지를 감싸는 박스: 커진 이미지가 박스 밖으로 안 넘치게 */
+.img_box, .main_img, .gd_img, .h100_img, .media_slider a, .gallery_list li{display: block; overflow: hidden;}
+
+/* ---------- 큰 글자 테두리 깨짐(윈도우 ClearType 색번짐) 방지 ---------- */
+/* 큰 글자에 class="big_txt" 붙이면 적용 */
+.big_txt, .row_list h4{
+	-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+	text-rendering: geometricPrecision;
+	transform: translateZ(0); /* 별도 레이어로 만들어 회색톤 안티앨리어싱 적용 */
+}
+
+/* ---------- 서브 인트로 타이틀 (sub2 기준, sub1·2·4·5 공통 / sub3는 sub3.css에 따로) ---------- */
+/* 페이지 넘어갈 때 제목 위치·크기·높이가 똑같도록 한 곳에서 관리 */
+/* 아래 여백(padding-bottom)은 페이지마다 다르므로 각 subN.css에서 지정 */
+.story_intro, .coll_intro, .shop_intro, .media_intro{width: var(--inner); margin: 0 auto; padding-top: 150px;}
+/* 그라데이션 배경(gradient-hero.css)이 들어간 타이틀: 배경은 화면 가득, 글자는 양옆 5% 여백 (= 90% 폭 그대로) */
+.sub .hero-glow{width: 100%; padding-left: 5%; padding-right: 5%;}
+/* 타이틀 영역: 제목 한 줄 + 아래 문구 2개 (왼쪽 / --col-txt 지점) */
+.story_intro .title_box, .coll_intro .title_box, .shop_intro .title_box, .media_intro .title_box{
+	display: grid; grid-template-columns: var(--col-txt) 1fr; align-items: end;}
+.story_intro .page_title, .coll_intro .page_title, .shop_intro .page_title, .media_intro .page_title{
+	grid-column: 1 / -1; /* 제목은 두 칸 다 차지 */
+	font-size: var(--font-page); font-weight: 400; line-height: 1; letter-spacing: -.03em;
+	margin-bottom: 30px;
+	-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+	text-rendering: geometricPrecision; transform: translateZ(0);}
+.story_intro .mid_copy, .coll_intro .mid_copy, .shop_intro .mid_copy, .media_intro .mid_copy{font-size: var(--font-copy); line-height: 1.4;}
+.coll_intro .sub_copy, .shop_intro .sub_copy, .media_intro .sub_copy{font-size: var(--font-card); line-height: 1.5; color: var(--c-gray);}
+
+/* ---------- 섹션 제목 (Philosophy, Visit 등) ---------- */
+.sec_title{width: var(--inner); margin: 0 auto; padding-bottom: 28px;
+	font-size: var(--font-copy); font-weight: 400; border-bottom: 1px solid var(--c-line);}
+
+/* ---------- 행 리스트: 큰 제목 + 오른쪽 설명 ---------- */
+.row_list{width: var(--inner); margin: 0 auto;}
+.row_list li{display: grid; grid-template-columns: var(--col-txt) 1fr; align-items: center;
+	padding: 44px 0; border-bottom: 1px solid var(--c-line);}
+.row_list h4{font-size: var(--font-row); font-weight: 400; line-height: 1.1; letter-spacing: -.01em;}
+.row_list p{font-size: var(--font-desc); color: var(--c-gray);}
+
+/* ---------- 라인 버튼 ---------- */
+.sub a.btn_line{display: inline-block;} /* common.css의 a{display:block} 덮어쓰기 */
+.btn_line{padding: 6px 22px; border: 1px solid currentColor; border-radius: 30px;
+	font-size: var(--font-btn); transition: all .3s;}
+.btn_line:hover{background: var(--c-dark); color: #fff;}
+
+
+/* 일반 pc */
+@media screen and (max-width:1280px) {
+	.sub{--col-txt: 52%;}
+	.story_intro, .coll_intro, .shop_intro, .media_intro{padding-top: 120px;}
+}
+
+/* 테블릿 */
+@media screen and (max-width:1024px) {
+	.story_intro, .coll_intro, .shop_intro, .media_intro{padding-top: 100px;}
+	.story_intro .page_title, .coll_intro .page_title, .shop_intro .page_title, .media_intro .page_title{margin-bottom: 24px;}
+	.sec_title{padding-bottom: 20px;}
+	.row_list li{padding: 30px 0;}
+}
+
+/* 소형 테블릿 */
+@media screen and (max-width:768px) {
+	/* 모바일 메뉴는 검정 배경이라 글자·X 아이콘 흰색으로 */
+	.sub #headerArea #gnb li a{color: #fff;}
+	.sub #headerArea.mn_open .menu_ham span::before,
+	.sub #headerArea.mn_open .menu_ham span::after{background: #fff;}
+	.story_intro, .coll_intro, .shop_intro, .media_intro{padding-top: 90px;}
+	/* 문구 2개 위아래로 쌓기 */
+	.story_intro .title_box, .coll_intro .title_box, .shop_intro .title_box, .media_intro .title_box{grid-template-columns: 1fr; gap: 16px;}
+	.row_list li{grid-template-columns: 1fr; gap: 12px;}
+}
+
+/* 모바일 */
+@media screen and (max-width:640px) {
+	.story_intro .page_title, .coll_intro .page_title, .shop_intro .page_title, .media_intro .page_title{margin-bottom: 16px;}
+	.coll_intro .sub_copy br, .shop_intro .sub_copy br, .media_intro .sub_copy br{display: none;}
+	.sec_title{padding-bottom: 16px;}
+	.row_list li{padding: 20px 0;}
+}

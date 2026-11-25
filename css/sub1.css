@@ -1,0 +1,143 @@
+/* =========================================
+   SUB5 - MEDIA
+   (공통 스타일 sub_common.css) ㄱㄱㄱㄱ
+   ========================================= */
+
+/* 와이드 pc  */
+
+/* ---------- 1. 타이틀 + 메인 일러스트 ---------- */
+/* 위 여백·글자 크기는 sub_common.css 공통 (sub2와 동일) */
+/* 배치만 예전 방식: Our 왼쪽 위 / Story 오른쪽 아래 / 문구는 Story 줄 왼쪽 */
+.story_intro .title_box{display: block; position: relative;}
+.story_intro .page_title{display: flex; flex-direction: column;
+	line-height: .85; margin-bottom: 0;
+	padding: 0 50px;} /* 좌우 여백으로 Our·Story를 중앙 쪽으로 모음 */
+.story_intro .page_title .t_our{align-self: flex-start;}
+.story_intro .page_title .t_story{align-self: flex-end; margin-top: -.12em;}
+.story_intro .mid_copy{position: absolute; left: 5%; bottom: -12px;}
+/* 문구 bottom = 다른 서브처럼 '문구 끝 ~ 아래 콘텐츠' 간격이 같도록 맞춘 값 (main_img margin-top - 160px 만큼 아래로) */
+/* 이미지 시작 높이를 sub2·3 본문 시작 높이와 맞춤
+   sub2·3 타이틀 영역(제목 1줄 + 문구 2줄) + 160px = sub1 타이틀 영역(Our/Story 2줄) + 이 값 */
+.main_img{margin-top: 172px;}
+.main_img img{width: 100%; height: auto; display: block;}
+.intro_txt{padding: 60px 0 110px;}
+.intro_txt h3{font-size: var(--font-copy); font-weight: 400;}
+.intro_txt p{margin-top: 6px; font-size: var(--font-body); color: var(--c-gray);}
+
+/* 큰 글자 깨짐 방지 (sub_common.css의 .big_txt와 같은 설정) */
+.history_list .year, .cent_top .num{
+	-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+	text-rendering: geometricPrecision; transform: translateZ(0);
+}
+
+/* ---------- 2. 연혁 ---------- */
+.history{width: var(--inner); margin: 0 auto; padding: 100px 0;}
+.history_list{display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 80px;}
+.history_list li{border-top: 1px solid var(--c-line); padding-top: 30px;}
+.history_list .year{display: block; font-size: var(--font-year); font-weight: 400; line-height: 1.1; letter-spacing: -.01em;}
+.history_list h4{margin: 30px 0 10px; font-size: var(--font-card); font-weight: 500;}
+.history_list p{font-size: var(--font-btn); color: var(--c-gray);}
+
+/* ---------- 3. 인용구 ---------- */
+.quote{display: flex; flex-direction: column; justify-content: center;
+	min-height: 760px; padding: 120px 5%; color: #fff;
+	background: #4a4a46 url(../images/sub1/img2.png) no-repeat center / cover;} /* 이미지 자체가 어두움 */
+.quote .ko{font-size: var(--font-copy); font-weight: 600; line-height: 1.4;}
+.quote .en{margin-top: 24px; font-size: var(--font-body);}
+.quote cite{display: block; width: 38%; margin: 160px 0 0 auto; padding-top: 10px;
+	border-top: 1px solid #fff; font-style: normal; font-size: var(--font-btn);}
+
+/* ---------- 4. 철학 ---------- */
+.philosophy{padding: 100px 0;}
+
+/* ---------- 5. 100주년 ---------- */
+.centennial{background: var(--c-dark); color: #fff;}
+.cent_top{width: var(--inner); margin: 0 auto; padding: 140px 0;
+	display: flex; justify-content: center; align-items: center; gap: 5%;}
+.cent_top .num{font-size: var(--font-big-num); font-weight: 500; line-height: .8; letter-spacing: -.02em;}
+.cent_txt h3{font-size: var(--font-copy); font-weight: 400;}
+.cent_txt p{margin: 6px 0 40px; font-size: var(--font-desc);}
+.cent_txt .btn_line{color: #fff;}
+.cent_txt .btn_line:hover{background: #fff; color: var(--c-dark);}
+.color_list{display: grid; grid-template-columns: repeat(3, 1fr);}
+.color_list li{aspect-ratio: 5 / 3; display: flex; align-items: flex-end; padding: 0 0 44px 15%; color: #fff;}
+.color_list span{font-size: var(--font-card);}
+.color_list .red{background: var(--c-red);}
+.color_list .brown{background: var(--c-brown);}
+.color_list .blue{background: var(--c-blue);}
+
+/* ---------- 6. 방문 ---------- */
+.visit{padding: 100px 0 200px;}
+.visit .row_list li{grid-template-columns: var(--col-txt) 19% 1fr; padding: 80px 0;}
+.visit .row_list .btn_line{justify-self: start;}
+
+/* 일반 pc */
+@media screen and (max-width:1280px) {
+	.story_intro .mid_copy{bottom: -8px;}
+	.main_img{margin-top: 128px;}
+	.history_list{gap: 0 50px;}
+	.quote{min-height: 560px;}
+	.visit .row_list li{grid-template-columns: var(--col-txt) 1fr auto; gap: 20px;}
+}
+
+/* 테블릿 */
+@media screen and (max-width:1024px) {
+	.story_intro .mid_copy{bottom: -19px;}
+	.main_img{margin-top: 119px;}
+	.intro_txt{padding: 40px 0 70px;}
+
+	.history{padding-bottom: 100px;}
+	.history_list{grid-template-columns: repeat(2, 1fr); gap: 50px 40px;}
+	.history_list li{padding-top: 20px;}
+	.history_list h4{margin: 16px 0 8px;}
+
+	.quote{min-height: 440px; padding: 80px 5%;}
+	.quote .en{margin-top: 14px;}
+	.quote cite{width: 60%; margin-top: 100px;}
+
+	.philosophy{padding: 120px 0;}
+
+	.cent_top{padding: 100px 0;}
+	.cent_txt p{margin-bottom: 30px;}
+	.color_list li{padding-bottom: 30px;}
+
+	.visit{padding: 120px 0;}
+	.visit .row_list li{padding: 50px 0;}
+}
+
+/* 소형 테블릿 */
+@media screen and (max-width:768px) {
+	.story_intro .page_title{padding-left: 4%; padding-right: 4%;}
+	.story_intro .mid_copy{left: 4%; bottom: -26px;}
+	.main_img{margin-top: 182px;}
+	.visit .row_list li{grid-template-columns: 1fr; gap: 12px;}
+	.cent_top{flex-direction: column; text-align: center; gap: 30px;}
+	.quote cite{width: 100%;}
+	.color_list li{aspect-ratio: 4 / 3; padding-left: 10%;}
+}
+
+/* 모바일 */
+@media screen and (max-width:640px) {
+	/* 화면이 좁으면 문구를 제목 아래로 */
+	.story_intro .page_title{padding-left: 0; padding-right: 0;}
+	.story_intro .page_title .t_story{margin-top: 0;}
+	.story_intro .mid_copy{position: static; margin-bottom: 10px;}
+	.main_img{margin-top: 103px;}
+	.intro_txt{padding: 30px 0 50px;}
+
+	.history{padding-bottom: 60px;}
+	.history_list{grid-template-columns: 1fr;}
+
+	.quote{min-height: 360px; padding: 50px 5%;}
+	.quote .ko br{display: none;}
+	.quote cite{margin-top: 60px;}
+
+	.philosophy{padding: 80px 0;}
+
+	.cent_top{padding: 60px 0;}
+	.color_list{grid-template-columns: 1fr;}
+	.color_list li{aspect-ratio: auto; height: 160px;}
+
+	.visit{padding: 80px 0;}
+	.visit .row_list li{padding: 30px 0;}
+}

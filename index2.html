@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gradient Hero | Bang &amp; Olufsen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<link rel="stylesheet" href="gradient-hero.css">
+<style>
+  /* 데모용 기본 스타일 (실제 페이지에서는 기존 스타일 사용) */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter Tight', 'Pretendard', sans-serif; color: #191817; word-break: keep-all; }
+  .page-hero {
+    display: grid;
+    grid-template-columns: 1fr 760px;
+    align-items: end;
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 200px 100px 160px;
+  }
+  .page-title { font-size: 300px; font-weight: 400; letter-spacing: -0.045em; line-height: 0.9; }
+  .page-sub { font-size: 48px; letter-spacing: -0.015em; line-height: 1.35; }
+  .page-lead { margin-top: 24px; font-size: 28px; line-height: 1.7; color: #555555; }
+</style>
+</head>
+<body>
+
+<!-- 타이틀 영역: section에 hero-glow 클래스를 주고, 맨 앞에 glow 4개를 넣으면 끝 -->
+<section class="hero-glow">
+  <span class="glow glow-1"></span>
+  <span class="glow glow-2"></span>
+  <span class="glow glow-3"></span>
+  <span class="glow glow-4"></span>
+
+  <div class="page-hero">
+    <h1 class="page-title">Media</h1>
+    <div>
+      <p class="page-sub">소리가 머무는<br>장면들</p>
+      <p class="page-lead">캠페인 영상과 화보, 새로운 소식까지<br>B&amp;O의 모든 순간을 모았습니다.</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

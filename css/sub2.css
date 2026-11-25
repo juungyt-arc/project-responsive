@@ -1,0 +1,174 @@
+/* =========================================
+   SUB5 - MEDIA
+   (공통 스타일 sub_common.css) ㄱㄱㄱㄱ
+   ========================================= */
+
+/* 와이드 pc */
+/* sub2는 어두운 페이지: 배경 검정, 글자 흰색 (섹션들이 물려받음) */
+.sub2{
+	background: #000; color: #fff;
+	--c-gray: #999;   /* 설명 글자 회색 → 검정 배경에 맞게 밝게 */
+	--c-line: #444;   /* 구분선 → 어둡게 */
+}
+
+/* 헤더도 시안처럼 검정 배경, 흰 글자로 (sub_common의 흰 헤더 덮어쓰기) */
+.sub2 #headerArea{background: #000 !important;}
+.sub2 #headerArea h1 img{filter: none;}   /* 로고 원래 흰색으로 */
+.sub2 #headerArea #gnb li a{color: #fff;}
+.sub2 #headerArea .menu_ham span,
+.sub2 #headerArea .menu_ham span::before,
+.sub2 #headerArea .menu_ham span::after{background: #fff;}
+
+/* 큰 글자 깨짐 방지 */
+.table_list .big_name{
+	-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+	text-rendering: geometricPrecision; transform: translateZ(0);
+}
+
+/* ---------- 1. 인트로 (타이틀 + 브랜드 목록) ---------- */
+/* 타이틀 영역(위 여백·제목·문구)은 sub_common.css 공통 */
+.coll_intro{padding-bottom: 100px;}
+
+/* 브랜드 목록: 왼쪽 큰 이름 / 오른쪽 아래 제품명 */
+.table_list{margin-top: 160px; border-top: 1px solid var(--c-line);}
+.table_list li{display: flex; justify-content: space-between; align-items: flex-end; gap: 20px;
+	padding: 20px 0; border-bottom: 1px solid var(--c-line);}
+.table_list .big_name{font-size: var(--font-row); font-weight: 400; line-height: 1.1; letter-spacing: -.01em;}
+.table_list p{padding-bottom: 10px; font-size: var(--font-btn); color: var(--c-gray); text-align: right;}
+
+/* ---------- 2. 지드래곤 ---------- */
+/* 왼쪽 이미지 / 오른쪽 글 (글 칸 높이를 이미지에 맞추려고 stretch) */
+.gd{width: var(--inner); margin: 0 auto; padding: 100px 0 200px;
+	display: flex; align-items: stretch; gap: 60px;}
+.gd .gd_img{width: 61%;}
+.gd .gd_img img{display: block; width: 100%; height: auto;}   /* 원본 크기로 넘치지 않게 칸에 맞춤 */
+
+/* 글 칸: 위에 제목·설명, 맨 아래에 스펙표 */
+.gd .gd_txt{flex: 1; display: flex; flex-direction: column;}
+.gd .gd_txt h3{font-size: var(--font-sec); font-weight: 400; line-height: 1.15; letter-spacing: -.01em;}
+.gd .gd_txt > p{margin-top: 20px; font-size: var(--font-desc); line-height: 1.6;}
+
+/* 스펙표: margin-top:auto로 맨 아래까지 밀어냄 */
+.gd .spec{margin-top: auto; border-top: 1px solid var(--c-line);}
+.gd .spec div{display: flex; justify-content: space-between;
+	padding: 30px 0; border-bottom: 1px solid var(--c-line); font-size: var(--font-btn);}
+.gd .spec dt{color: var(--c-gray);}
+
+/* ---------- 3. 제네시스 ---------- */
+/* 배경은 화면 끝까지, 내용은 좌우 5% 안쪽으로 (width 대신 padding으로 여백) */
+.genesis{padding: 100px 5% 200px; background: #D4521E;}
+.genesis .racing_txt{display: flex; align-items: flex-end; gap: 40px; margin-bottom: 40px;}
+.genesis .racing_txt h3{font-size: var(--font-sec); font-weight: 400; line-height: 1.15; letter-spacing: -.01em;
+	white-space: nowrap;} /* 제목이 두 줄로 안 깨지게 */
+.genesis .racing_txt p{font-size: var(--font-desc); line-height: 1.6;padding-bottom: 10px;}
+.genesis .racing_img{display: grid; grid-template-columns: 1fr 1.3fr 1fr; gap: 10px;}
+.genesis .racing_img img{display: block; width: 100%; height: auto;}
+/* 2·3번째 이미지: 줄 높이에 영향 안 주고(absolute) 1번째 이미지 높이만큼 채움, 비율은 잘라서 맞춤 */
+.genesis .racing_img .img_box:nth-child(n+2){position: relative;}
+.genesis .racing_img .img_box:nth-child(n+2) img{position: absolute; inset: 0; height: 100%; object-fit: cover;}
+
+/* ---------- 4. riva ---------- */
+.riva{width: var(--inner); margin: 0 auto; padding: 100px 0 200px;}
+.riva .riva_txt{display: flex; align-items: flex-end; gap: 40px; margin-bottom: 40px;}
+.riva .riva_txt h3{font-size: var(--font-sec); font-weight: 400; line-height: 1.15; letter-spacing: -.01em;
+	white-space: nowrap;} /* 제목이 두 줄로 안 깨지게 */
+.riva .riva_txt p{font-size: var(--font-desc); line-height: 1.6;padding-bottom: 10px;}
+.riva .riva_img{display: grid;grid-template-columns: 1fr 1.5fr 1fr; gap: 10px;}
+.riva .riva_img img{display: block;width: 100%;height: auto;}
+.riva .riva_img .img_box:nth-child(1),
+.riva .riva_img .img_box:nth-child(3){position: relative;}
+.riva .riva_img .img_box:nth-child(1) img,
+.riva .riva_img .img_box:nth-child(3) img{position: absolute; inset: 0; height: 100%; object-fit: cover;}
+
+/* ---------- 5. ader_error ---------- */
+.ader_error{padding: 100px 5% 200px; background: #060DAA;}
+.ader_error .ader_txt{display: flex; align-items: flex-end; gap: 40px; margin-bottom: 40px;}
+.ader_error .ader_txt h3{font-size: var(--font-sec); font-weight: 400; line-height: 1.15; letter-spacing: -.01em;
+	white-space: nowrap;}
+.ader_error .ader_txt p{font-size: var(--font-desc); line-height: 1.6;padding-bottom: 10px;}
+.ader_error .ader_img{display: grid;grid-template-columns: 1fr 1fr 1fr;grid-template-rows: 300px 300px; gap: 10px;}
+/* 모든 이미지가 칸을 꽉 채우고, 비율은 잘라서 맞춤 */
+.ader_error .ader_img img{display: block; width: 100%; height: 100%; object-fit: cover;}
+/* 1번(왼쪽)·4번(오른쪽): 세로 2줄 다 차지 → 가운데에 2·3번이 위아래로 쌓임 */
+/* 위치 직접 지정 (grid-column: 열 / grid-row: 시작선 / 끝선) */
+.ader_error .ader_img .img_box:nth-child(1){grid-column: 1; grid-row: 1 / 3;}   /* 왼쪽, 2줄 */
+.ader_error .ader_img .img_box:nth-child(2){grid-column: 2; grid-row: 1;}       /* 가운데 위 */
+.ader_error .ader_img .img_box:nth-child(3){grid-column: 2; grid-row: 2;}       /* 가운데 아래 */
+.ader_error .ader_img .img_box:nth-child(4){grid-column: 3; grid-row: 1 / 3;}   /* 오른쪽, 2줄 */
+
+/* ---------- 6. 생로랑 ---------- */
+.saint_laurent{width: var(--inner); margin: 0 auto; padding: 100px 0 200px;}
+.saint_laurent .saint_txt{display: flex;align-items: flex-end; gap: 40px; margin-bottom: 40px;}
+.saint_laurent .saint_txt h3{font-size: var(--font-sec);font-weight: 400; line-height: 1.15; letter-spacing: -.01em;
+	white-space: nowrap;}
+.saint_laurent .saint_txt p{font-size: var(--font-desc); line-height: 1.6;padding-bottom: 10px;}
+.saint_laurent .saint_img{display: grid;grid-template-columns: 1.2fr 1fr 1fr; gap: 10px;}
+/* 박스를 flex로 → 이미지가 박스(줄) 높이만큼 늘어남, 비율은 잘라서 맞춤 */
+.saint_laurent .saint_img .img_box{display: flex;}
+.saint_laurent .saint_img img{display: block; width: 100%; object-fit: cover;}
+
+/* 일반 pc */
+@media screen and (max-width:1280px) {
+	.coll_intro{padding-bottom: 160px;}
+	.table_list{margin-top: 120px;}
+
+	.gd{gap: 40px; padding-bottom: 160px;}
+	.gd .spec div{padding: 20px 0;}
+
+	/* 3~6 컬렉션 공통 */
+	.genesis, .riva, .ader_error, .saint_laurent{padding-top: 80px; padding-bottom: 160px;}
+	.genesis .racing_txt, .riva .riva_txt, .ader_error .ader_txt, .saint_laurent .saint_txt{gap: 30px; margin-bottom: 30px;}
+	.ader_error .ader_img{grid-template-rows: 250px 250px;}
+}
+
+/* 테블릿 */
+@media screen and (max-width:1024px) {
+	.coll_intro{padding-bottom: 120px;}
+	.table_list{margin-top: 100px;}
+	.table_list li{padding: 16px 0;}
+
+	/* 이미지 위, 글 아래로 쌓기 */
+	.gd{flex-direction: column; gap: 40px; padding-bottom: 120px;}
+	.gd .gd_img{width: 100%;}
+	.gd .spec{margin-top: 40px;}
+
+	.genesis, .riva, .ader_error, .saint_laurent{padding-bottom: 120px;}
+	.ader_error .ader_img{grid-template-rows: 200px 200px;}
+}
+
+/* 소형 테블릿 */
+@media screen and (max-width:768px) {
+	.coll_intro{padding-bottom: 100px;}
+	.table_list{margin-top: 80px;}
+
+	/* 제목 아래로 설명 쌓기 */
+	.genesis .racing_txt, .riva .riva_txt, .ader_error .ader_txt, .saint_laurent .saint_txt{flex-direction: column; align-items: flex-start; gap: 12px;}
+	.genesis .racing_txt p, .riva .riva_txt p, .ader_error .ader_txt p, .saint_laurent .saint_txt p{padding-bottom: 0;}
+	.ader_error .ader_img{grid-template-rows: 160px 160px;}
+}
+
+/* 모바일 */
+@media screen and (max-width:640px) {
+	.coll_intro{padding-bottom: 80px;}
+	.table_list{margin-top: 60px;}
+	/* 이름 아래에 제품명 */
+	.table_list li{flex-direction: column; align-items: flex-start; gap: 4px; padding: 14px 0;}
+	.table_list p{padding-bottom: 0; text-align: left;}
+	.gd{gap: 30px; padding-bottom: 80px;}
+	.gd .gd_txt > p br{display: none;}
+	.gd .spec{margin-top: 30px;}
+	.gd .spec div{padding: 14px 0;}
+
+	/* 3~6 컬렉션: 이미지 한 줄씩 쌓기 */
+	.genesis, .riva, .ader_error, .saint_laurent{padding-top: 60px; padding-bottom: 80px;}
+	.genesis .racing_txt, .riva .riva_txt, .ader_error .ader_txt, .saint_laurent .saint_txt{margin-bottom: 24px;}
+	.genesis .racing_txt p br, .riva .riva_txt p br, .ader_error .ader_txt p br, .saint_laurent .saint_txt p br{display: none;}
+
+	.genesis .racing_img, .riva .riva_img, .saint_laurent .saint_img{grid-template-columns: 1fr;}
+	/* 높이 맞추기 해제 (nth-child(n) = 전부, 원래 선택자와 우선순위 같게) */
+	.genesis .racing_img .img_box:nth-child(n) img, .riva .riva_img .img_box:nth-child(n) img{position: static; height: auto;}
+
+	/* 에이더: 2열, 위치 지정 해제 */
+	.ader_error .ader_img{grid-template-columns: 1fr 1fr; grid-template-rows: none; grid-auto-rows: 220px;}
+	.ader_error .ader_img .img_box:nth-child(n){grid-column: auto; grid-row: auto;}
+}
